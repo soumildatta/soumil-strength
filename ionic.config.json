@@ -1,0 +1,7 @@
+{
+  "name": "soumil-strength",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
