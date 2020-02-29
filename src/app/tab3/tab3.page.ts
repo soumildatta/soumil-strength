@@ -11,6 +11,7 @@ export class Tab3Page {
 
   constructor(public popoverController: PopoverController) {}
 
+  // popover displaying about page option and logout option
   async openPopover(event) {
     const popover = await this.popoverController.create({
       component: ProfilePopoverComponent,
