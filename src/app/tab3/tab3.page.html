@@ -1,17 +1,92 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
+    <ion-buttons slot="secondary">
+      <ion-button color="secondary" (click)="openPopover($event)">
+        <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button color="secondary" (click)="save()">
+        Save
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Profile</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card class="ion-text-center">
+    <img src="assets/img/placeholder2.png" alt="placeholder profile pic">
+    <ion-card-header>
+      <!-- change this to username later -->
+      <ion-card-title>Progress Picture</ion-card-title>
+      <ion-card-subtitle>Username</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-button size="small" (click)="presentActionSheet()">
+        Edit Picture
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-list>
+    <!-- Name input -->
+    <!-- <ion-item>
+      <ion-label>Name: </ion-label>
+      <ion-input></ion-input>
+    </ion-item> -->
+
+    <!-- implementation of age could be through birthday -->
+    <!-- <ion-item>
+      <ion-label position="stacked">Birthday: </ion-label>
+      <ion-datetime displayFormat="MMMM YY" min="1900-06-04" max="2025-12-10" value="1994-12-15T13:47:20.789"></ion-datetime>
+    </ion-item> -->
+
+
+    <!-- Implement ion picker for age  -->
+    <ion-item>
+      <ion-label>Age</ion-label>
+      <ion-label class="selection-label" (click)="agePicker()">Select Your Age</ion-label>
+    </ion-item>
+
+    <!-- implement ion picker -->
+    <ion-item>
+      <ion-label>Height</ion-label>
+      <ion-label class="selection-label" (click)="heightPicker()">Feet, Inches</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Gender</ion-label>
+      <ion-select placeholder="Select One">
+        <ion-select-option value="m">Male</ion-select-option>
+        <ion-select-option value="f">Female</ion-select-option>
+        <ion-select-option value="o">Other</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+  </ion-list>
+
+  <!-- goal selection -->
+  <ion-item>
+    <ion-label class="ion-text-wrap">
+      <h2>Goals</h2>
+      <ion-radio-group value="strength">
+        <ion-chip>
+          <ion-label>Strength </ion-label>
+          <ion-radio value="strength"></ion-radio>
+        </ion-chip>
+        <ion-chip>
+          <ion-label>Endurance </ion-label>
+          <ion-radio value="endurance"></ion-radio>
+        </ion-chip>
+        <ion-chip>
+          <ion-label>Size </ion-label>
+          <ion-radio value="size"></ion-radio>
+        </ion-chip>
+      </ion-radio-group>
+    </ion-label><br>
+  </ion-item>
+
+  <!-- <app-explore-container name="Tab 3 page"></app-explore-container> -->
 </ion-content>

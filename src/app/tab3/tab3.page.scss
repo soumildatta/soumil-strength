@@ -1,3 +1,21 @@
 ion-content ion-toolbar {
   --background: translucent;
 }
+
+img {
+  border-radius: 25px;
+  margin-top: 20px;
+  padding-left: 0px;
+  padding-right: 0px;
+  height: 350px;
+  width: 350px;
+}
+
+.selection-label {
+  text-align: right;
+  color: #686868;
+}
+
+.input-align {
+  text-align: right;
+}
