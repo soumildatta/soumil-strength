@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PopoverController } from '@ionic/angular';
+import { PopoverController, ActionSheetController } from '@ionic/angular';
 import { ProfilePopoverComponent } from '../profile-popover/profile-popover.component';
 
 @Component({
@@ -9,7 +9,7 @@ import { ProfilePopoverComponent } from '../profile-popover/profile-popover.comp
 })
 export class Tab3Page {
 
-  constructor(public popoverController: PopoverController) {}
+  constructor(public popoverController: PopoverController, public actionSheetController: ActionSheetController) {}
 
   // popover displaying about page option and logout option
   async openPopover(event) {
@@ -20,4 +20,31 @@ export class Tab3Page {
     });
     return await popover.present();
   }
+
+  async presentActionSheet() {
+    const actionSheet = await this.actionSheetController.create({
+      header: 'Edit Profile Picture',
+      buttons: [{
+        text: '  Upload Image',
+        handler: () => {
+          console.log('Upload clicked');
+        }
+      }, {
+        text: 'Remove Image',
+        role: 'destructive',
+        handler: () => {
+          console.log('Remove image pressed');
+        }
+      }, {
+        text: 'Cancel',
+        icon: 'close',
+        role: 'cancel',
+        handler: () => {
+          console.log('Cancel clicked');
+        }
+      }]
+    });
+    await actionSheet.present();
+  }
+
 }
