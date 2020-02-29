@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { PopoverController, ActionSheetController, ToastController, PickerController } from '@ionic/angular';
 import { ProfilePopoverComponent } from '../profile-popover/profile-popover.component';
+import { ConditionalExpr } from '@angular/compiler';
 
 
 // implement better way of listing ages
@@ -19,25 +20,13 @@ const ageOptions = [
 
 const heightOptions = [
   [
-    '3\'',
-    '4\'',
-    '5\'',
-    '6\'',
-    '7\''
+    '3\'', '4\'', '5\'',
+    '6\'', '7\''
   ],
   [
-    '1"',
-    '2"',
-    '3"',
-    '4"',
-    '5"',
-    '6"',
-    '7"',
-    '8"',
-    '9"',
-    '10"',
-    '11"',
-    '12"'
+    '1"',  '2"',  '3"', '4"',
+    '5"',  '6"',  '7"', '8"',
+    '9"', '10"', '11"', '12"'
   ]
 ]
 
@@ -50,16 +39,6 @@ const heightOptions = [
 export class Tab3Page {
 
   constructor(public popoverController: PopoverController, public actionSheetController: ActionSheetController, public toastController: ToastController, public pickerController: PickerController) {}
-
-  // popover displaying about page option and logout option
-  async openPopover(event) {
-    const popover = await this.popoverController.create({
-      component: ProfilePopoverComponent,
-      event,
-      translucent: true
-    });
-    return await popover.present();
-  }
 
   // picker for height and age
   // TODO show the selected height and age in the label text
@@ -126,11 +105,6 @@ export class Tab3Page {
   }
 
 
-
-
-
-
-
   // present toast when save button clicked
   async save() {
     const toast = await this.toastController.create({
@@ -140,6 +114,7 @@ export class Tab3Page {
     toast.present();
   }
 
+  // Present options to remove or upload profile picture
   async presentActionSheet() {
     const actionSheet = await this.actionSheetController.create({
       header: 'Edit Profile Picture',
@@ -164,5 +139,15 @@ export class Tab3Page {
       }]
     });
     await actionSheet.present();
+  }
+
+  // popover displaying about page option and logout option
+  async openPopover(event) {
+    const popover = await this.popoverController.create({
+      component: ProfilePopoverComponent,
+      event,
+      translucent: true
+    });
+    return await popover.present();
   }
 }
