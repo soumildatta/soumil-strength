@@ -45,8 +45,9 @@ const routes: Routes = [
     ]
   },
   {
+    // changed default path to login 
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/login',
     pathMatch: 'full'
   }
 ];
