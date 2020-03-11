@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- IN the future, have a logo instead -->
+    <ion-title>Soumil Strength</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="background-image"></div>
+
+  <ion-card>
+
+    <ion-card-header>
+      <ion-card-title>Login or Sign Up</ion-card-title>
+    </ion-card-header>
+
+    <div class="login-items">
+      <form action="">
+        <ion-item lines="full">
+          <ion-label position="stacked">Username</ion-label>
+          <ion-input required type="text"></ion-input>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label position="stacked">Password</ion-label>
+          <ion-input type="password"></ion-input>
+        </ion-item>
+
+        <section class="buttons">
+          <ion-button (click)="loginClick()">Login</ion-button>
+          <ion-button>Sign Up</ion-button>
+        </section>
+      </form>
+    </div>
+
+  </ion-card>
+</ion-content>
