@@ -28,6 +28,16 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'howto',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../howto/howto.module').then(m => m.HowtoPageModule)
+          }
+        ]
+      },
+      {
         path: 'tab3',
         children: [
           {
