@@ -20,4 +20,8 @@ export class ProfilePopoverComponent implements OnInit {
   logout() {
     this.router.navigateByUrl('/login');
   }
+
+  about() {
+    this.router.navigateByUrl('/about');
+  }
 }
