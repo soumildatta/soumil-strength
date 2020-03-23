@@ -14,6 +14,6 @@ export class AboutPage implements OnInit {
   }
 
   back() {
-    this.router.navigateByUrl('/tabs');
+    this.router.navigateByUrl('/tabs/tab3');
   }
 }

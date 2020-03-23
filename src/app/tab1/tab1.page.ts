@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ToastController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +9,14 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  constructor(public toastController: ToastController) {}
+
+  async finish() {
+    const toast = await this.toastController.create({
+      message: 'Good Job! Workout complete',
+      duration: 2000
+    });
+    toast.present();
+  }
 
 }
