@@ -15,6 +15,7 @@
   "dependencies": {
     "@angular/common": "~8.2.14",
     "@angular/core": "~8.2.14",
+    "@angular/fire": "^5.4.2",
     "@angular/forms": "~8.2.14",
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
@@ -26,6 +27,7 @@
     "@ionic/angular": "^5.0.0",
     "chart.js": "^2.9.3",
     "core-js": "^2.5.4",
+    "firebase": "^7.13.1",
     "ionic": "^5.4.16",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
