@@ -25,6 +25,7 @@ export class SignupPage implements OnInit {
 
   async signup() {
     var errormsg = "";
+    
     if(this.user.password != this.user.passwordCheck) {
       // passwords do not match
 
