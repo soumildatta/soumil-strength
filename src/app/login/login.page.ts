@@ -16,8 +16,8 @@ interface User {
 
 export class LoginPage implements OnInit {
   user: User = {
-    email: "", 
-    password: ""
+    email: "testingfromauth@gmail.com", 
+    password: "testing"
   }
 
   constructor(private router: Router, public afAuth: AngularFireAuth) { }
@@ -36,11 +36,13 @@ export class LoginPage implements OnInit {
   }
 
   async signup() {
-    const user = await this.afAuth.auth.createUserWithEmailAndPassword(
-      this.user.email,
-      this.user.password
-    );
+    this.router.navigateByUrl('/signup');
 
-    console.log(user);
+    // const user = await this.afAuth.auth.createUserWithEmailAndPassword(
+    //   this.user.email,
+    //   this.user.password
+    // );
+
+    // console.log(user);
   }
 }
