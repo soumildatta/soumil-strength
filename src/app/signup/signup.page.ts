@@ -13,10 +13,7 @@ interface User {
   styleUrls: ['./signup.page.scss'],
 })
 export class SignupPage implements OnInit {
-  user: User = {
-    email: "testingfromauth@gmail.com", 
-    password: "testing"
-  }
+  user: User = {}
 
   constructor(private router: Router, public afAuth: AngularFireAuth) { }
 
