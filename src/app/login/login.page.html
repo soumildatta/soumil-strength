@@ -15,10 +15,9 @@
     </ion-card-header>
 
     <div class="login-items">
-      <form action="">
         <ion-item lines="full">
           <ion-label position="stacked">Email</ion-label>
-          <ion-input required type="text" id="email"></ion-input>
+          <ion-input required type="text" id="email" [(ngModel)]="user.email"></ion-input>
         </ion-item>
         <ion-item lines="full">
           <ion-label position="stacked">Password</ion-label>
@@ -29,9 +28,6 @@
           <ion-button (click)="login()">Login</ion-button>
           <ion-button (click)="signup()">Sign Up</ion-button>
         </section>
-
-        <h2>{{ email }}</h2>
-      </form>
     </div>
 
   </ion-card>
