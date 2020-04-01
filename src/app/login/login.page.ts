@@ -15,8 +15,23 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
-  login() {
-    
+  async login() {
+    var email,
+    element = (<HTMLInputElement>document.getElementById("email"));
+    if (element.value != null) {
+      email = element.value;
+    }
+
+    var pwd, 
+    element = (<HTMLInputElement>document.getElementById("pwd"));
+    if (element.value != null) {
+      pwd = element.value;
+    }
+
+    const user = await this.afAuth.auth.signInWithEmailAndPassword(
+      email, 
+      pwd
+    )
 
     this.router.navigateByUrl('/tabs');
   }
