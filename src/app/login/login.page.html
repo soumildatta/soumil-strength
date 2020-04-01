@@ -17,17 +17,17 @@
     <div class="login-items">
       <form action="">
         <ion-item lines="full">
-          <ion-label position="stacked">Username</ion-label>
-          <ion-input required type="text"></ion-input>
+          <ion-label position="stacked">Email</ion-label>
+          <ion-input required type="text" id="email"></ion-input>
         </ion-item>
         <ion-item lines="full">
           <ion-label position="stacked">Password</ion-label>
-          <ion-input type="password"></ion-input>
+          <ion-input required type="password" id="pwd"></ion-input>
         </ion-item>
 
         <section class="buttons">
-          <ion-button (click)="loginClick()">Login</ion-button>
-          <ion-button>Sign Up</ion-button>
+          <ion-button (click)="login()">Login</ion-button>
+          <ion-button (click)="signup()">Sign Up</ion-button>
         </section>
       </form>
     </div>
