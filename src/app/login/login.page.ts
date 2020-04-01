@@ -1,6 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { stringify } from 'querystring';
+
+interface User {
+  email?: string;
+  password?: string;
+}
 
 @Component({
   selector: 'app-login',
@@ -9,6 +15,10 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 
 export class LoginPage implements OnInit {
+  user: User = {
+    email: "", 
+    password: ""
+  }
 
   constructor(private router: Router, public afAuth: AngularFireAuth) { }
 
@@ -16,42 +26,19 @@ export class LoginPage implements OnInit {
   }
 
   async login() {
-    var email,
-    element = (<HTMLInputElement>document.getElementById("email"));
-    if (element.value != null) {
-      email = element.value;
-    }
-
-    var pwd, 
-    element = (<HTMLInputElement>document.getElementById("pwd"));
-    if (element.value != null) {
-      pwd = element.value;
-    }
 
     const user = await this.afAuth.auth.signInWithEmailAndPassword(
-      email, 
-      pwd
+      this.user.email, 
+      this.user.password
     )
 
     this.router.navigateByUrl('/tabs');
   }
 
   async signup() {
-    var email,
-    element = (<HTMLInputElement>document.getElementById("email"));
-    if (element.value != null) {
-      email = element.value;
-    }
-
-    var pwd, 
-    element = (<HTMLInputElement>document.getElementById("pwd"));
-    if (element.value != null) {
-      pwd = element.value;
-    }
-
     const user = await this.afAuth.auth.createUserWithEmailAndPassword(
-      email,
-      pwd
+      this.user.email,
+      this.user.password
     );
 
     console.log(user);
