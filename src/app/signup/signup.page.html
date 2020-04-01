@@ -21,6 +21,10 @@
         <ion-label position="stacked">Choose a password</ion-label>
         <ion-input required type="password" id="pwd" [(ngModel)]="user.password"></ion-input>
       </ion-item>
+      <ion-item lines="full">
+        <ion-label position="stacked">Retype password</ion-label>
+        <ion-input required type="password" id="pwd" [(ngModel)]="user.passwordCheck"></ion-input>
+      </ion-item>
 
       <section class="buttons">
         <ion-button (click)="signup()">Sign Up</ion-button>
