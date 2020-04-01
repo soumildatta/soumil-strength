@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-profile-popover',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ProfilePopoverComponent implements OnInit {
 
-  constructor(public popoverController: PopoverController, private router: Router) {}
+  constructor(public popoverController: PopoverController, private router: Router, public afAuth: AngularFireAuth) {}
 
   ngOnInit() {}
 
@@ -17,8 +18,16 @@ export class ProfilePopoverComponent implements OnInit {
   //   this.popoverController.dismiss();
   // }
 
-  logout() {
-    this.router.navigateByUrl('/login');
+  async logout() {
+
+    var errormsg = "";
+    await this.afAuth.auth.signOut().catch(error => {
+      errormsg = error.message;
+    })
+
+    if (errormsg === "") {
+      this.router.navigateByUrl('/login');
+    }
   }
 
   about() {

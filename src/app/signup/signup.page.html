@@ -1,0 +1,36 @@
+<ion-header>
+  <!-- <ion-toolbar>
+    <ion-title>signup</ion-title>
+  </ion-toolbar> -->
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-header>
+      <img src="./assets/img/logo.png" alt="app logo">
+      <ion-card-title>Sign Up</ion-card-title>
+    </ion-card-header>
+
+    <div class="login-items">
+      <ion-item lines="full">
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input required type="text" id="email" [(ngModel)]="user.email"></ion-input>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-label position="stacked">Choose a password</ion-label>
+        <ion-input required type="password" id="pwd" [(ngModel)]="user.password"></ion-input>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-label position="stacked">Retype password</ion-label>
+        <ion-input required type="password" id="pwd" [(ngModel)]="user.passwordCheck"></ion-input>
+      </ion-item>
+
+      <section class="buttons">
+        <ion-button (click)="signup()">Sign Up</ion-button>
+        <ion-button (click)="login()">Back to Login</ion-button>
+      </section>
+    </div>
+  </ion-card>
+
+</ion-content>
