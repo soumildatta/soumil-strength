@@ -27,56 +27,79 @@ export class SignupPage implements OnInit {
   async signup() {
     var errormsg = "";
     
-    if(this.user.password != this.user.passwordCheck) {
-      // passwords do not match
-
+    if(this.user.email == "" || this.user.email == null) {
       const toast = await this.toastController.create({
-        message: 'Your passwords do not match!',
+        message: "Email cannot be blank!",
+        duration: 2000, 
+        color: "danger"
+      });
+      toast.present();
+    } else if (this.user.username == "" || this.user.username == null) {
+      const toast = await this.toastController.create({
+        message: "Username cannot be blank!",
         duration: 2000,
-        color: "warning"
+        color: "danger"
+      });
+      toast.present();
+    } else if (this.user.password == "" || this.user.password == null) {
+      const toast = await this.toastController.create({
+        message: "A new password is required to sign up!",
+        duration: 2000,
+        color: "danger"
       });
       toast.present();
     } else {
-      // create firebase user 
-      // catches error message and stores it in errormsg
-
-      await this.afAuth.auth.createUserWithEmailAndPassword(
-        this.user.email, 
-        this.user.password
-      ).then(user => {
-        if(this.afAuth.auth.currentUser){
-          this.afAuth.auth.currentUser.updateProfile({
-            displayName: this.user.username
-          })
-        }
-      }).catch(error => {
-        errormsg = error.message;
-      });
-
-      if (errormsg != "") {
-        // present error message toast
-
+      if(this.user.password != this.user.passwordCheck) {
+        // passwords do not match
+  
         const toast = await this.toastController.create({
-          message: errormsg,
+          message: 'Your passwords do not match!',
           duration: 2000,
-          color: "danger"
+          color: "warning"
         });
         toast.present();
       } else {
-        // user successfully created 
-
-        this.user.email = "";
-        this.user.username = "";
-        this.user.password = "";
-        this.user.passwordCheck = "";
-
-        const toast = await this.toastController.create({
-          message: 'User created! Return to the login page to login',
-          duration: 2000,
-          color: "success"
+        // create firebase user 
+        // catches error message and stores it in errormsg
+  
+        await this.afAuth.auth.createUserWithEmailAndPassword(
+          this.user.email, 
+          this.user.password
+        ).then(user => {
+          if(this.afAuth.auth.currentUser){
+            this.afAuth.auth.currentUser.updateProfile({
+              displayName: this.user.username
+            })
+          }
+        }).catch(error => {
+          errormsg = error.message;
         });
-
-        toast.present();
+  
+        if (errormsg != "") {
+          // present error message toast
+  
+          const toast = await this.toastController.create({
+            message: errormsg,
+            duration: 2000,
+            color: "danger"
+          });
+          toast.present();
+        } else {
+          // user successfully created 
+  
+          this.user.email = "";
+          this.user.username = "";
+          this.user.password = "";
+          this.user.passwordCheck = "";
+  
+          const toast = await this.toastController.create({
+            message: 'User created! Return to the login page to login',
+            duration: 2000,
+            color: "success"
+          });
+  
+          toast.present();
+        }
       }
     }
   }
