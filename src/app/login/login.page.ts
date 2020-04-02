@@ -57,6 +57,7 @@ export class LoginPage implements OnInit {
     } else {
       // successfully login
       this.router.navigateByUrl('/tabs');
+      // console.log(this.afAuth.auth.currentUser.displayName);
     }
   }
 
