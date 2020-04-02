@@ -6,6 +6,7 @@ import { ToastController } from '@ionic/angular';
 // enforce strict checking
 interface User {
   email?: string;
+  username?: string;
   password?: string;
   passwordCheck?: string;
 }
@@ -42,7 +43,13 @@ export class SignupPage implements OnInit {
       await this.afAuth.auth.createUserWithEmailAndPassword(
         this.user.email, 
         this.user.password
-      ).catch(error => {
+      ).then(user => {
+        if(this.afAuth.auth.currentUser){
+          this.afAuth.auth.currentUser.updateProfile({
+            displayName: this.user.username
+          })
+        }
+      }).catch(error => {
         errormsg = error.message;
       });
 
@@ -59,6 +66,7 @@ export class SignupPage implements OnInit {
         // user successfully created 
 
         this.user.email = "";
+        this.user.username = "";
         this.user.password = "";
         this.user.passwordCheck = "";
 

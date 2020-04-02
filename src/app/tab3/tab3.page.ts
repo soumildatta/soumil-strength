@@ -2,7 +2,11 @@ import { Component } from '@angular/core';
 import { PopoverController, ActionSheetController, ToastController, PickerController } from '@ionic/angular';
 import { ProfilePopoverComponent } from '../profile-popover/profile-popover.component';
 import { ConditionalExpr } from '@angular/compiler';
+import { AngularFireAuth } from '@angular/fire/auth';
 
+interface User {
+  username?: string;
+}
 
 // implement better way of listing ages
 const ageOptions = [
@@ -37,8 +41,14 @@ const heightOptions = [
 })
 
 export class Tab3Page {
+  // username from auth
+  user: User = {
+    username: this.afAuth.auth.currentUser.displayName
+  }
 
-  constructor(public popoverController: PopoverController, public actionSheetController: ActionSheetController, public toastController: ToastController, public pickerController: PickerController) {}
+  constructor(public popoverController: PopoverController, public actionSheetController: ActionSheetController, public toastController: ToastController, public pickerController: PickerController, public afAuth: AngularFireAuth) {}
+
+  
 
   // picker for height and age
   // TODO show the selected height and age in the label text
