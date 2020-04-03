@@ -47,7 +47,81 @@
     <!-- Implement ion picker for age  -->
     <ion-item>
       <ion-label>Age</ion-label>
-      <ion-label class="selection-label" (click)="agePicker()">Select Your Age</ion-label>
+      <ion-select [(ngModel)]="user.age">
+        <ion-select-option value="18">18</ion-select-option>
+        <ion-select-option value="19">19</ion-select-option>
+        <ion-select-option value="20">20</ion-select-option>
+        <ion-select-option value="21">21</ion-select-option>
+        <ion-select-option value="22">22</ion-select-option>
+        <ion-select-option value="23">23</ion-select-option>
+        <ion-select-option value="24">24</ion-select-option>
+        <ion-select-option value="25">25</ion-select-option>
+        <ion-select-option value="26">26</ion-select-option>
+        <ion-select-option value="27">27</ion-select-option>
+        <ion-select-option value="28">28</ion-select-option>
+        <ion-select-option value="29">29</ion-select-option>
+        <ion-select-option value="30">30</ion-select-option>
+        <ion-select-option value="31">31</ion-select-option>
+        <ion-select-option value="32">32</ion-select-option>
+        <ion-select-option value="33">33</ion-select-option>
+        <ion-select-option value="34">34</ion-select-option>
+        <ion-select-option value="35">35</ion-select-option>
+        <ion-select-option value="36">36</ion-select-option>
+        <ion-select-option value="37">37</ion-select-option>
+        <ion-select-option value="38">38</ion-select-option>
+        <ion-select-option value="39">39</ion-select-option>
+        <ion-select-option value="40">40</ion-select-option>
+        <ion-select-option value="41">41</ion-select-option>
+        <ion-select-option value="42">42</ion-select-option>
+        <ion-select-option value="43">43</ion-select-option>
+        <ion-select-option value="44">44</ion-select-option>
+        <ion-select-option value="45">45</ion-select-option>
+        <ion-select-option value="46">46</ion-select-option>
+        <ion-select-option value="47">47</ion-select-option>
+        <ion-select-option value="48">48</ion-select-option>
+        <ion-select-option value="49">49</ion-select-option>
+        <ion-select-option value="50">50</ion-select-option>
+        <ion-select-option value="51">51</ion-select-option>
+        <ion-select-option value="52">52</ion-select-option>
+        <ion-select-option value="53">53</ion-select-option>
+        <ion-select-option value="54">54</ion-select-option>
+        <ion-select-option value="55">55</ion-select-option>
+        <ion-select-option value="56">56</ion-select-option>
+        <ion-select-option value="57">57</ion-select-option>
+        <ion-select-option value="58">58</ion-select-option>
+        <ion-select-option value="59">59</ion-select-option>
+        <ion-select-option value="60">60</ion-select-option>
+        <ion-select-option value="61">61</ion-select-option>
+        <ion-select-option value="62">62</ion-select-option>
+        <ion-select-option value="63">63</ion-select-option>
+        <ion-select-option value="64">64</ion-select-option>
+        <ion-select-option value="65">65</ion-select-option>
+        <ion-select-option value="66">66</ion-select-option>
+        <ion-select-option value="67">67</ion-select-option>
+        <ion-select-option value="68">68</ion-select-option>
+        <ion-select-option value="69">69</ion-select-option>
+        <ion-select-option value="70">70</ion-select-option>
+        <ion-select-option value="71">71</ion-select-option>
+        <ion-select-option value="72">72</ion-select-option>
+        <ion-select-option value="73">73</ion-select-option>
+        <ion-select-option value="74">74</ion-select-option>
+        <ion-select-option value="75">75</ion-select-option>
+        <ion-select-option value="76">76</ion-select-option>
+        <ion-select-option value="77">77</ion-select-option>
+        <ion-select-option value="78">78</ion-select-option>
+        <ion-select-option value="79">79</ion-select-option>
+        <ion-select-option value="80">80</ion-select-option>
+        <ion-select-option value="81">81</ion-select-option>
+        <ion-select-option value="82">82</ion-select-option>
+        <ion-select-option value="83">83</ion-select-option>
+        <ion-select-option value="84">84</ion-select-option>
+        <ion-select-option value="85">85</ion-select-option>
+        <ion-select-option value="86">86</ion-select-option>
+        <ion-select-option value="87">87</ion-select-option>
+        <ion-select-option value="88">88</ion-select-option>
+        <ion-select-option value="89">89</ion-select-option>
+        <ion-select-option value="90">90</ion-select-option>
+      </ion-select>
     </ion-item>
 
     <!-- implement ion picker -->
@@ -58,13 +132,12 @@
 
     <ion-item>
       <ion-label>Gender</ion-label>
-      <ion-select placeholder="Select One">
+      <ion-select placeholder="Select One" [(ngModel)]="user.gender">
         <ion-select-option value="m">Male</ion-select-option>
         <ion-select-option value="f">Female</ion-select-option>
         <ion-select-option value="o">Other</ion-select-option>
       </ion-select>
     </ion-item>
-
   </ion-list>
 
   <!-- goal selection -->

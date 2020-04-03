@@ -6,6 +6,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
 
 interface User {
   username?: string;
+  age?: string;
+  gender?: string;
 }
 
 // implement better way of listing ages
@@ -122,6 +124,9 @@ export class Tab3Page {
       duration: 2000
     });
     toast.present();
+
+    console.log(this.user.age);
+    console.log(this.user.gender);
   }
 
   // Present options to remove or upload profile picture
