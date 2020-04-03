@@ -37,6 +37,12 @@ const heightOptions = [
 })
 
 export class Tab3Page {
+  height: string="";
+  weight: number=0;
+  age: number=0;
+  gender: boolean=false;
+  goal: string="strength";
+
 
   constructor(public popoverController: PopoverController, public actionSheetController: ActionSheetController, public toastController: ToastController, public pickerController: PickerController) {}
 
@@ -107,7 +113,8 @@ export class Tab3Page {
 
   // present toast when save button clicked
   async save() {
-    const toast = await this.toastController.create({
+
+      const toast = await this.toastController.create({
       message: 'Your profile has been updated! (Not really yet)',
       duration: 2000
     });
