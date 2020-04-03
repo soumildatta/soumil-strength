@@ -27,6 +27,7 @@ export class SignupPage implements OnInit {
   async signup() {
     var errormsg = "";
     
+    //check for empty fields
     if(this.user.email == "" || this.user.email == null) {
       const toast = await this.toastController.create({
         message: "Email cannot be blank!",
