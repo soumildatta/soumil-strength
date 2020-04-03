@@ -30,7 +30,7 @@ const heightOptions = [
   [
     '1"',  '2"',  '3"', '4"',
     '5"',  '6"',  '7"', '8"',
-    '9"', '10"', '11"', '12"'
+    '9"', '10"', '11"'
   ]
 ]
 
@@ -41,13 +41,18 @@ const heightOptions = [
 })
 
 export class Tab3Page {
+  height: string="";
+  weight: number=0;
+  age: number=0;
+  gender: boolean=false;
+  goal: string="strength";
+
   // username from auth
   user: User = {
     username: this.afAuth.auth.currentUser.displayName
   }
 
   constructor(public popoverController: PopoverController, public actionSheetController: ActionSheetController, public toastController: ToastController, public pickerController: PickerController, public afAuth: AngularFireAuth) {}
-
   
 
   // picker for height and age
@@ -117,7 +122,8 @@ export class Tab3Page {
 
   // present toast when save button clicked
   async save() {
-    const toast = await this.toastController.create({
+
+      const toast = await this.toastController.create({
       message: 'Your profile has been updated! (Not really yet)',
       duration: 2000
     });
