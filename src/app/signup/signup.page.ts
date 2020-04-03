@@ -93,12 +93,14 @@ export class SignupPage implements OnInit {
           this.user.passwordCheck = "";
   
           const toast = await this.toastController.create({
-            message: 'User created! Return to the login page to login',
+            message: 'User created!',
             duration: 2000,
             color: "success"
           });
   
           toast.present();
+
+          this.router.navigateByUrl('/login');
         }
       }
     }
