@@ -24,6 +24,29 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
+  async forgot() {
+
+    // prompt user to work with the email field available
+    if(this.user.email == "" || this.user.email == null) {
+      const toast = await this.toastController.create({
+        message: "Please enter an email you signed up with to retrieve your password!",
+        duration: 2000,
+        color: "warning"
+      });
+      toast.present();
+    } else {
+      this.afAuth.auth.sendPasswordResetEmail(this.user.email);
+
+      // present toast that email has been sent 
+      const toast = await this.toastController.create({
+        message: "Your password reset email has been sent",
+        duration: 2000,
+        color: "success"
+      });
+      toast.present();
+    }
+  }
+
   async login() {
     var errormsg = "";
 
