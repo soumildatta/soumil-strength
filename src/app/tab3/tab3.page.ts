@@ -6,6 +6,10 @@ import { AngularFireAuth } from '@angular/fire/auth';
 
 interface User {
   username?: string;
+  age?: string;
+  weight?: string;
+  gender?: string;
+  goals?: string;
 }
 
 // implement better way of listing ages
@@ -53,7 +57,10 @@ export class Tab3Page {
   }
 
   constructor(public popoverController: PopoverController, public actionSheetController: ActionSheetController, public toastController: ToastController, public pickerController: PickerController, public afAuth: AngularFireAuth) {}
-  
+
+  getRange(n: number, startFrom: number): number[] {
+    return [...Array(n).keys()].map(i => i + startFrom);
+  }
 
   // picker for height and age
   // TODO show the selected height and age in the label text
@@ -122,12 +129,16 @@ export class Tab3Page {
 
   // present toast when save button clicked
   async save() {
-
-      const toast = await this.toastController.create({
-      message: 'Your profile has been updated! (Not really yet)',
+    const toast = await this.toastController.create({
+      message: 'Your profile has been updated!',
       duration: 2000
     });
     toast.present();
+
+    console.log(this.user.age);
+    console.log(this.user.weight);
+    console.log(this.user.gender);
+    console.log(this.user.goals);
   }
 
   // Present options to remove or upload profile picture
