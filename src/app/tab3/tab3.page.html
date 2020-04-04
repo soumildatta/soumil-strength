@@ -75,7 +75,7 @@
   <ion-item>
     <ion-label class="ion-text-wrap">
       <h2>Goals</h2>
-      <ion-radio-group value="strength">
+      <ion-radio-group [(ngModel)]="user.goals">
         <ion-chip>
           <ion-label>Strength </ion-label>
           <ion-radio value="strength"></ion-radio>
