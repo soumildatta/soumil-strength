@@ -50,7 +50,9 @@ export class Tab3Page {
 
   constructor(public popoverController: PopoverController, public actionSheetController: ActionSheetController, public toastController: ToastController, public pickerController: PickerController, public afAuth: AngularFireAuth) {}
 
-  
+  getRange(n: number, startFrom: number): number[] {
+    return [...Array(n).keys()].map(i => i + startFrom);
+  }
 
   // picker for height and age
   // TODO show the selected height and age in the label text
