@@ -21,11 +21,6 @@ interface User {
 })
 
 export class Tab3Page {
-  height: string="";
-  weight: number=0;
-  age: number=0;
-  gender: boolean=false;
-  goal: string="strength";
 
   userProfile;
   profile;
