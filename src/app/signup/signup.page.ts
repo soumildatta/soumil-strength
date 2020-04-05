@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { ToastController } from '@ionic/angular';
+import { UserService } from '../user.service';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 // enforce strict checking
 interface User {
@@ -19,7 +21,7 @@ interface User {
 export class SignupPage implements OnInit {
   user: User = {}
 
-  constructor(private router: Router, public afAuth: AngularFireAuth, private toastController: ToastController) { }
+  constructor(private router: Router, public afAuth: AngularFireAuth, private toastController: ToastController, public person: UserService, public firestore: AngularFirestore) { }
 
   ngOnInit() {
   }
@@ -100,6 +102,18 @@ export class SignupPage implements OnInit {
           });
   
           toast.present();
+
+          const username = this.user.username;
+
+          // creates a new doc with the user id 
+          this.firestore.doc(`users/${this.afAuth.auth.currentUser.uid}`).set({
+            username
+          })
+
+          this.person.setUser({
+            username,
+            uid: this.afAuth.auth.currentUser.uid
+          })
 
           this.router.navigateByUrl('/login');
         }

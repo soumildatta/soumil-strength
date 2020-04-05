@@ -4,6 +4,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { stringify } from 'querystring';
 import { ToastController } from '@ionic/angular';
 import { NgFormSelectorWarning } from '@angular/forms';
+import { UserService } from '../user.service';
 
 interface User {
   email?: string;
@@ -19,7 +20,7 @@ interface User {
 export class LoginPage implements OnInit {
   user: User = {}
 
-  constructor(private router: Router, public afAuth: AngularFireAuth, private toastController: ToastController) { }
+  constructor(private router: Router, public afAuth: AngularFireAuth, private toastController: ToastController, public person: UserService) { }
 
   ngOnInit() {
   }
@@ -58,14 +59,14 @@ export class LoginPage implements OnInit {
       });
       toast.present();
     } else {
-      await this.afAuth.auth.signInWithEmailAndPassword(
+      const res = await this.afAuth.auth.signInWithEmailAndPassword(
         this.user.email, 
         this.user.password
       ).catch(error => {
         errormsg = error.message;
       })
       // console.log(user);
-  
+      
       if (errormsg != "") {
         // error toast
   
@@ -88,6 +89,14 @@ export class LoginPage implements OnInit {
         } 
       } else {
         // successfully login
+
+        const username = this.afAuth.auth.currentUser.displayName;
+
+        this.person.setUser({
+          username,
+          uid: this.afAuth.auth.currentUser.uid
+        })
+
         this.router.navigateByUrl('/tabs');
         // console.log(this.afAuth.auth.currentUser.displayName);
       }
