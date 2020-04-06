@@ -7,8 +7,12 @@ ion-card {
 }
 
 ion-button {
-    width: 160px;
+    width: 140px;
     margin: 45px 10px 40px 10px;
+}
+
+.forgot ion-button {
+    width: 160px;
 }
 
 .buttons {
