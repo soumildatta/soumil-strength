@@ -22,16 +22,31 @@ interface User {
 
 export class Tab3Page {
 
-  userProfile;
-  profile;
-  
-  constructor(private firestore: AngularFirestore, public popoverController: PopoverController, public actionSheetController: ActionSheetController, public toastController: ToastController, public pickerController: PickerController, public afAuth: AngularFireAuth, public person: UserService) {
-    this.profile = firestore.doc(`users/${person.getUID()}`)
+  constructor(private firestore: AngularFirestore, public popoverController: PopoverController, public actionSheetController: ActionSheetController, public toastController: ToastController, public pickerController: PickerController, public afAuth: AngularFireAuth, public person: UserService) {}
+   // username from auth
+
+  users: any;
+
+  ngOnInit() {
+    this.person.read().subscribe(data => {
+      
+      this.users = data.map(e => {
+        return {
+          id: e.payload.doc.id,
+          isEdit: false,
+          age: e.payload.doc.data()['age'],
+          weight: e.payload.doc.data()['weight'],
+          gender: e.payload.doc.data()['gender'],
+          goals: e.payload.doc.data()['goals']
+        }
+      })
+      console.log(this.users);
+      // console.log(this.users[0].age);
+    })
   }
 
-   // username from auth
   user: User = {
-    username: this.afAuth.auth.currentUser.displayName
+    username: this.afAuth.auth.currentUser.displayName,
   }
 
   getRange(n: number, startFrom: number): number[] {
@@ -59,7 +74,7 @@ export class Tab3Page {
       goals: this.user.goals
     })
 
-    console.log(this.firestore.doc(`users/${this.person.getUID()}`));
+    // console.log(this.firestore.doc(`users/${this.person.getUID()}`));
     // const items = this.firestore.doc;
     // console.log(this.firestore.collection('users').valueChanges());
   }

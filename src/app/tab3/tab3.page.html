@@ -30,7 +30,7 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-list>
+  <ion-list *ngFor="let item of users">
     <!-- Name input -->
     <!-- <ion-item>
       <ion-label>Name: </ion-label>
@@ -45,28 +45,28 @@
 
 
     <!-- age options  -->
-    <ion-item>
+    <ion-item *ngIf="this.person.getUID() == item.id">
       <ion-label>Age</ion-label>
-      <ion-select [(ngModel)]="user.age">
+      <ion-select [(ngModel)]="user.age" placeholder="{{item.age}}">
         <ion-select-option *ngFor="let i of getRange((91-18), 18);" value={{i}}> {{i}} </ion-select-option>
       </ion-select>
     </ion-item>
 
     <!-- weight options -->
-    <ion-item>
+    <ion-item *ngIf="this.person.getUID() == item.id">
       <ion-label>Weight</ion-label>
-      <ion-select [(ngModel)]="user.weight">
+      <ion-select [(ngModel)]="user.weight" placeholder="{{item.weight}}">
         <ion-select-option *ngFor="let i of getRange((251-90), 90);" value={{i}}> {{i}} </ion-select-option>
       </ion-select>
     </ion-item>
     
     <!-- gender options -->
-    <ion-item>
+    <ion-item *ngIf="this.person.getUID() == item.id">
       <ion-label>Gender</ion-label>
-      <ion-select placeholder="Select One" [(ngModel)]="user.gender">
-        <ion-select-option value="m">Male</ion-select-option>
-        <ion-select-option value="f">Female</ion-select-option>
-        <ion-select-option value="o">Other</ion-select-option>
+      <ion-select placeholder="Select One" [(ngModel)]="user.gender" placeholder="{{item.gender}}">
+        <ion-select-option value="Male">Male</ion-select-option>
+        <ion-select-option value="Female">Female</ion-select-option>
+        <ion-select-option value="Other">Other</ion-select-option>
       </ion-select>
     </ion-item>
   </ion-list>
