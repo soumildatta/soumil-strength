@@ -31,8 +31,7 @@ export class Tab3Page {
 
    // username from auth
   user: User = {
-    username: this.afAuth.auth.currentUser.displayName,
-    weight: this.firestore.doc(`users/${this.person.getUID()}`)[1]
+    username: this.afAuth.auth.currentUser.displayName
   }
 
   getRange(n: number, startFrom: number): number[] {
