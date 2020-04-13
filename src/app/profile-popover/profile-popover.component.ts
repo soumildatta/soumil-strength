@@ -30,6 +30,10 @@ export class ProfilePopoverComponent implements OnInit {
     }
   }
 
+  changepswd() {
+    this.router.navigateByUrl('/changepassword');
+  }
+
   about() {
     this.router.navigateByUrl('/about');
   }
