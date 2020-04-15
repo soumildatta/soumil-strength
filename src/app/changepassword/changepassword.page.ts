@@ -44,9 +44,6 @@ export class ChangepasswordPage implements OnInit {
         color: "success"
       });
       toast.present();
-
-      // this works
-      console.log(this.person.getEmail());
     }
   }
 }
