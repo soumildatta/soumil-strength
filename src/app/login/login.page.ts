@@ -94,7 +94,8 @@ export class LoginPage implements OnInit {
 
         this.person.setUser({
           username,
-          uid: this.afAuth.auth.currentUser.uid
+          uid: this.afAuth.auth.currentUser.uid,
+          email: this.user.email
         })
 
         this.router.navigateByUrl('/tabs');

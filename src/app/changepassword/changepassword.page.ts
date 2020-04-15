@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { ToastController } from '@ionic/angular';
+import { UserService } from '../user.service';
 
 interface User {
   email?: string;
@@ -15,7 +16,7 @@ interface User {
 export class ChangepasswordPage implements OnInit {
   user: User = {}
 
-  constructor(private router: Router, private afAuth: AngularFireAuth, private toastController: ToastController) {}
+  constructor(private router: Router, private afAuth: AngularFireAuth, private toastController: ToastController, private person: UserService) {}
 
   ngOnInit() {
   }
@@ -26,9 +27,9 @@ export class ChangepasswordPage implements OnInit {
 
   async change() {
     // prompt user to work with the email field available
-    if(this.user.email == "" || this.user.email == null) {
+    if(this.user.email != this.person.getEmail() || this.user.email == null) {
       const toast = await this.toastController.create({
-        message: "Please enter an email you signed up with to retrieve your password!",
+        message: "Please enter the email you logged in with to retrieve your password!",
         duration: 2000,
         color: "warning"
       });
@@ -43,6 +44,9 @@ export class ChangepasswordPage implements OnInit {
         color: "success"
       });
       toast.present();
+
+      // this works
+      console.log(this.person.getEmail());
     }
   }
 }
