@@ -16,26 +16,27 @@
       <ion-title size="large">Charts</ion-title>
     </ion-toolbar>
   </ion-header>
-   
+  
+
   <!--- Card 1-->
-  <ion-grid>
+  <ion-grid *ngFor="let item of users">
     <!--Row-->
     <ion-row>
       <ion-col>
-        <ion-card>
+        <ion-card *ngIf="this.person.getUID() == item.id">
           <ion-card-header>
             <ion-card-title>Sessions Done</ion-card-title>
           </ion-card-header>
-          <ion-card-content>47</ion-card-content>
+          <ion-card-content>{{item.sessions}}</ion-card-content>
         </ion-card>
       </ion-col>
 
       <ion-col>
-        <ion-card>
+        <ion-card *ngIf="this.person.getUID() == item.id">
           <ion-card-header>
             <ion-card-title>Calories Burned</ion-card-title>
           </ion-card-header>
-          <ion-card-content>7089</ion-card-content>
+          <ion-card-content>{{item.calories}}</ion-card-content>
         </ion-card>
       </ion-col>
 
@@ -43,29 +44,29 @@
     <!--Row-->
     <ion-row>
       <ion-col>
-        <ion-card>
+        <ion-card *ngIf="this.person.getUID() == item.id">
           <ion-card-header>
             <ion-card-title>Total Increase</ion-card-title>
           </ion-card-header>
-          <ion-card-content>500000 pounds!</ion-card-content>
+          <ion-card-content>{{item.increase}} pounds</ion-card-content>
         </ion-card>
       </ion-col>
 
-      <ion-col>
+      <!-- <ion-col>
         <ion-card>
           <ion-card-header>
             <ion-card-title>Coolest TA/Professor</ion-card-title>
           </ion-card-header>
           <ion-card-content>You obviously, yah handsom sob</ion-card-content>
         </ion-card>
-      </ion-col>
+      </ion-col> -->
 
     </ion-row>
 
    
 
 
-    <!--Row-->
+    <!-- Row
     <ion-row>
       <ion-col>
 
@@ -73,7 +74,7 @@
       <ion-col>
   
       </ion-col>
-    </ion-row>
+    </ion-row> -->
 
 
     
