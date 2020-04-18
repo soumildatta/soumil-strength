@@ -6,12 +6,17 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore} from '@angular/fire/firestore';
 import { UserService } from '../user.service';
 
+//User Interface ************************************************
 interface User {
   username?: string;
   age?: string;
   weight?: string;
   gender?: string;
   goals?: string;
+  bench?: number;
+  squat?: number;
+  overhead?: number;
+  completed?: boolean;
 }
 
 @Component({
@@ -21,7 +26,8 @@ interface User {
 })
 
 export class Tab3Page {
-
+  
+  //Constructor ****************************************************
   constructor(private firestore: AngularFirestore, public popoverController: PopoverController, public actionSheetController: ActionSheetController, public toastController: ToastController, public pickerController: PickerController, public afAuth: AngularFireAuth, public person: UserService) {}
 
   users: any;
