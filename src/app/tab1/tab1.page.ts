@@ -37,9 +37,9 @@ export class Tab1Page {
         return {
           id: e.payload.doc.id,
           isEdit: false,
-          bench: e.payload.doc.data()[155],
-          squat: e.payload.doc.data()[155],
-          overhead: e.payload.doc.data()[155],
+          bench: e.payload.doc.data()['bench'],
+          squat: e.payload.doc.data()['squat'],
+          overhead: e.payload.doc.data()['overhead'],
         }
       })
       console.log(this.users);
