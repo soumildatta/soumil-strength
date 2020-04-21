@@ -15,7 +15,7 @@ interface User {
   squat?: number;
   overhead?: number;
   completed?: boolean;
-} //I feel like angular would let you have this as its own component but we havent really learned angular now have we 
+}  
 
 @Component({
   selector: 'app-tab1',
