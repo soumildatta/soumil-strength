@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "soumil-strength"
+  },
+  "targets": {
+    "soumil-strength": {
+      "hosting": {
+        "app": [
+          "soumil-strength"
+        ]
+      }
+    }
   }
 }
