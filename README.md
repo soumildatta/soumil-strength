@@ -1,6 +1,6 @@
 # Soumil-Strength (Workout App)
 A simple hybrid workout app built using the Ionic framework and Angular, and uses Cloud Firestore to store data. 
-This application was made as a semester project for the Mobile Development course, by [Alex Madesclaire](https://github.com/amadesclaire) and [Soumil Datta](https://github.com/soumildatta) at the **University of Mississippi**.    
+This application was made as a proof of concept for the semester project in a Mobile Development course, by [Alex Madesclaire](https://github.com/amadesclaire) and [Soumil Datta](https://github.com/soumildatta) at the **University of Mississippi**.    
 [Visit the app](https://soumil-strength.web.app)  
 View the app screenshots [**HERE**](screenshots/README.md)   
 **Note**: This application is not fully functional, but serves as a good proof of concept for our semester project for the course. 
